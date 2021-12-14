@@ -6,18 +6,16 @@ https://bai.ess.uci.edu/megan/
 Reference: https://gmd.copernicus.org/articles/5/1471/2012/
 
 # Downloading data and codes
-Download required files from Google Drive:
-
-https://drive.google.com/drive/u/1/folders/1vKritH0B7nrAcHv0K_C1nxTheXBKn0pd
+Download required files as provided:
 
 Basic: 
 1) MEGAN source code
 2) Tutorial input files
 3) Run scripts
 
-Advanced:
-
+<!--Advanced:
 4) PREPCHEM2MEGAN preprocessor
+5) PREPCHEM2MEGAN_data-->
 
 # Getting the device environment ready
 Download Ubuntu 20.04 LTS from the Microsoft Store or https://ubuntu.com/wsl
