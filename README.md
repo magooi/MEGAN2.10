@@ -85,16 +85,24 @@ ls -lah
 ```
 
 ![chmod755](https://user-images.githubusercontent.com/52151758/145758195-ac8c72fe-9c78-4d7e-9aa3-ce1a94ebf4d0.PNG)
+### Move files into the MEGAN folder
+```
+mv MEGANv2.10_beta.tar.gz MEGAN
+mv Tutorial1.zip MEGAN
+```
 
 ### Untar and unzip files ending with .tar.gz
 In MEGAN directory:
 ```
-cd MEGAN
+cd ~/MEGAN
 ls
 tar -zxvf MEGANv2.10_beta.tar.gz
 ls -lah
-cd MEGANv2.10
+ls -lah MEGANv2.10
+cd ../
+unzip Tutorial1.zip
 ls -lah
+ls -lah Tutorial1
 ```
 <!-- In PREPMEGAN4CMAQ_data:
 
