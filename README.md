@@ -1,5 +1,6 @@
 ### Disclaimer
-This is just a tutorial created to assist the execution of the MEGAN model.
+This is just a tutorial created to assist the execution of the 	
+Model of Emissions of Gases and Aerosols from Nature (MEGAN) model.
 Please visit the developer site for more information:
 https://bai.ess.uci.edu/megan/
 
