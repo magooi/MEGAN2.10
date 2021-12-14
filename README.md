@@ -1,4 +1,9 @@
-# Getting data and codes
+### Disclaimer
+This is just a tutorial created to assist the execution of the MEGAN model.
+Please visit the developer site for more information:
+https://bai.ess.uci.edu/megan/
+
+# Downloading data and codes
 Download required files from Google Drive:
 
 https://drive.google.com/drive/u/1/folders/1vKritH0B7nrAcHv0K_C1nxTheXBKn0pd
@@ -12,7 +17,7 @@ Advanced:
 
 4) PREPCHEM2MEGAN preprocessor
 
-## Getting the device environment ready
+# Getting the device environment ready
 Download Ubuntu 20.04 LTS from the Microsoft Store or https://ubuntu.com/wsl
 
 Follow the instructions here to install the required Windows Subsytem and restart the machine, as per the instructions on
@@ -23,9 +28,14 @@ Download MobaXTerm for Windows
 
 https://mobaxterm.mobatek.net
 
-## Getting data ready
-### Windows environment: Putting the files in the Linux home directory
-Locate the Ubuntu folder in your machine: go to user folder
+Download gedit for Windows
+
+https://gedit.en.uptodown.com/windows
+
+# Moving files to the Linux environment
+Locate the Ubuntu folder in your machine (AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc)
+
+Enter to the home directory and create a folder called "MEGAN"
 
 Example: (replace the username according to your account)
 
@@ -33,12 +43,26 @@ Example: (replace the username according to your account)
 
 ![fileloc](https://user-images.githubusercontent.com/52151758/145754696-894900a9-5b77-4645-9f2e-2373b406fc79.PNG)
 
-### WSL Ubuntu Environment: Extracting the files
-1) Enter to the WSL Ubuntu environment
-Open your MobaXTERM and double-click on WSL
+<!--Tutorial 1:-->
+Move MEGANv2.10_beta.tar.gz and Tutorial1 into .../home/`user`/MEGAN
+
+# Setting up WSL Ubuntu environment
+## Enter to the WSL Ubuntu
+Open your MobaXTerm and double-click on WSL
+
 ![launch](https://user-images.githubusercontent.com/52151758/145755339-cfb38f60-60e9-442e-8e6d-935f47cb10c7.PNG)
 
-2) Check files - make sure it can be accessed
+## Installing necessary functions
+Type commands below and key in password when prompted
+```
+sudo apt-get update
+sudo apt install ncview
+sudo apt install csh
+```
+
+## Extracting the files
+
+### Check files permissions
 Some basic LINUX commands:
 ```
 pwd         - present working directory
@@ -49,7 +73,7 @@ cd MEGAN    - enter MEGAN directory
 ```
 ![pdenied](https://user-images.githubusercontent.com/52151758/145756814-a22b54fd-a3d6-4d52-aa08-5e460c51b80b.PNG)
 
-Turn on access with 755
+### Change file access status
 ```
 chmod             - change mode of access (**r**ead,**w**rite,e**x**ecute); level: 7 (rwe), 5 (r-e), 4 (r--); 
                     user: user, group, others                  
@@ -62,22 +86,38 @@ ls -lah
 
 ![chmod755](https://user-images.githubusercontent.com/52151758/145758195-ac8c72fe-9c78-4d7e-9aa3-ce1a94ebf4d0.PNG)
 
-3) Untar and unzip files ending with .tar.gz
-~~Files: MEGANv2.10beta.tar.gz, PREPMEGAN4CMAQ_data, sabi22.tar.gz~~
-~~tar -zxvf *tar.gz~~
+### Untar and unzip files ending with .tar.gz
+In MEGAN directory:
+```
+cd MEGAN
+ls
+tar -zxvf MEGANv2.10_beta.tar.gz
+ls -lah
+cd MEGANv2.10
+ls -lah
+```
+<!-- In PREPMEGAN4CMAQ_data:
 
-## Running MEGAN
-### Understanding MEGAN codes
+LINUX commands for untar and unzip:
+```
+tar -zxvf global_30s_2013_001_invlat.tar.gz    - couldn't run for multiple files
+for i in *.tar.gz; do tar -zxvf "$i"; done     - list files and run one by one
+```
+![untar](https://user-images.githubusercontent.com/52151758/145760108-78828eda-f8d8-4c5f-9f84-ac46e5a30822.PNG)-->
+
+# Running MEGAN
+## Understanding MEGAN codes
 in MEGAN/MEGANv2.10
 ```
-|-bin       : execution files (txt2ioapi, met2mgn, emproc, mgn2mech)
-|-src       : source codes
-|-work      : script executed (txt2ioapi, met2mgn, emproc, mgn2mech csh files)
-|-Input     : input files (EF, PFT, LAI csv files)
-|-Output    : output files
+|-bin         : execution files (txt2ioapi, met2mgn, emproc, mgn2mech)
+|-src         : source codes
+|-work        : script executed (txt2ioapi, met2mgn, emproc, mgn2mech csh files)
+|-Input       : input files (EF, PFT, LAI csv files)
+|-Output      : output files
+|-setcase.csh : setting the environment variables
 ```
 
-### Preparation
+## Preparation
 1) Correction of bin/mgn2mech link
 ```
 cd bin
@@ -86,17 +126,29 @@ ln -sf ../src/mgn2mech/mgn2mech .
 ls -l
 ```
 
-2) Copy tutorial input files into Input folder
+2) Copy tutorial input files into MEGANv2.10 folder
 ```
-cd MEGAN/Tutorial
-cp *csv ../MEGANv2.10/Input
-cp GRIDDESC ../MEGANv2.10
+cd ~/MEGAN/Tutorial1/Input
+ls
+cp * ../../MEGANv2.10/Input
 ```
 
-3) Setting environmental variables setcase.csh
+3) Copy tutorial script files into MEGANv2.10 folder
+```
+cd ~/MEGAN/Tutorial1
+ls
+cp *csh ../MEGANv2.10
+cd ../MEGANv2.10
+ls -lah
+ls -lah Input
+```
+
+4) Setting environmental variables setcase.csh
 ```
 cd MEGAN/MEGANv2.10
-vi setcase.csh
+cat setcase.csh     - printout file on screen
+pwd
+vi setcase.csh      - edit `MGNHOME` directory
 ```
 In vi/vim editor:
 
@@ -104,7 +156,7 @@ Enter `i` for edit mode; `Esc` to exit edit mode
 
 Enter `:w` to save change; `ZZ` to save change and exit; `:q!` to exit without saving
 
-### Execution
+## Execution
 
 1) txt2ioapi: Convert the text files into the I/O API files
 ```
