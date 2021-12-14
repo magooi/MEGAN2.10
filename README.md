@@ -3,6 +3,8 @@ This is just a tutorial created to assist the execution of the MEGAN model.
 Please visit the developer site for more information:
 https://bai.ess.uci.edu/megan/
 
+Reference: https://gmd.copernicus.org/articles/5/1471/2012/
+
 # Downloading data and codes
 Download required files from Google Drive:
 
@@ -49,8 +51,6 @@ Move MEGANv2.10_beta.tar.gz and Tutorial1 into .../home/`user`/MEGAN
 # Setting up WSL Ubuntu environment
 ## Enter to the WSL Ubuntu
 Open your MobaXTerm and double-click on WSL
-
-![launch](https://user-images.githubusercontent.com/52151758/145755339-cfb38f60-60e9-442e-8e6d-935f47cb10c7.PNG)
 
 ## Installing necessary functions
 Type commands below and key in password when prompted
