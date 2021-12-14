@@ -122,7 +122,7 @@ in MEGAN/MEGANv2.10
 ```
 cd bin
 ls -l
-ln -sf ../src/mgn2mech/mgn2mech .
+ln -sf ../src/MGN2MECH/mgn2mech .
 ls -l
 ```
 
@@ -162,39 +162,39 @@ Enter `:w` to save change; `ZZ` to save change and exit; `:q!` to exit without s
 ```
 ./run.txt2ioapi.v210.csh
 ```
-Specify input files location: EF.mSEA.csv, LAI.mSEA.csv, PFT.mSEA.csv
+Input files: EF210_mSEA_d01.csv, LAI210_mSEA_d01.csv, PFT210_mSEA_d01.csv
 
-Specify output files location: EF.mSEA.ncf, LAI.mSEA.ncf, PFT.mSEA.ncf
+Output files: EFMAPS.mSEA.d01.ncf, LAIS46.mSEA.d01.ncf, PFTS16.mSEA.d01.ncf
 
-Specify logfiles location: logfile...
+Output logfile: log.txt2ioapi.d01.txt
 
 2) met2mgn: Convert meteorological files (WRF/MCIP output) into I/O API files
 ```
 ./run.met2mgn.v210.2016352.csh
 ```
-Input files: EF.mSEA.csv, LAI.mSEA.csv, PFT.mSEA.csv
+Input files: METCRO2D_d01_2016325, METCRO3D_d01_2016325, METDOT3D_d01_2016325
 
-Output files: EF.mSEA.ncf, LAI.mSEA.ncf, PFT.mSEA.ncf
+Output files: MET.MEGAN.2016325.d01.ncf
 
-Logfiles: logfile...
+Output logfile: log.met2mgn.2016325.d01.txt
 
 3) emproc: MEGAN emission processing files
 ```
 ./run.emproc.v210.2016352.csh
 ```
-Input files: EF.mSEA.csv, LAI.mSEA.csv, PFT.mSEA.csv
+Input files: Output files from txt2ioapi and met2mgn
 
-Output files: EF.mSEA.ncf, LAI.mSEA.ncf, PFT.mSEA.ncf
+Output files: ER.mSEA.2016325.d01.ncf
 
-Logfiles: logfile...
+Logfiles: log.emproc.2016325.d01.txt 
 
 4) mgn2mech: MEGAN output speciated to specified chemical mechanism 
 
 ```
 ./run.mgn2mech.v210.2016352.csh
 ```
-Input files: EF.mSEA.csv, LAI.mSEA.csv, PFT.mSEA.csv
+Input files: ER.mSEA.2016325.d01.ncf
 
-Output files: EF.mSEA.ncf, LAI.mSEA.ncf, PFT.mSEA.ncf
+Output files: MEGANv2.10.mSEA.CB05.2016325.d01.ncf
 
-Logfiles: logfile...
+Logfiles: log.run.CB05.2016325.d01.txt 
