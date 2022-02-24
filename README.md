@@ -6,7 +6,7 @@ https://bai.ess.uci.edu/megan/
 
 Reference: https://gmd.copernicus.org/articles/5/1471/2012/
 
-The tutorial is developed for academic purposes in support of the UKM-YSD grant (ZF-2020-001)
+The tutorial is developed for academic purposes in support of the UKM-YSD Chair in Climate Change grant (ZF-2020-001)
 
 # Downloading data and codes
 Download required files as provided:
